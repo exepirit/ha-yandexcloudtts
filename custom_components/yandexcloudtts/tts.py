@@ -19,7 +19,7 @@ YANDEX_API_URL = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize?"
 
 SUPPORT_LANGUAGES = ["ru-RU", "en-US", "tr-TR"]
 
-SUPPORT_CODECS = ["lpcm", "oggopus"]
+SUPPORT_CODECS = ["lpcm", "oggopus", "mp3"]
 
 SUPPORT_VOICES = [
     "alena",
@@ -48,7 +48,7 @@ CONF_EMOTION = "emotion"
 CONF_SPEED = "speed"
 
 DEFAULT_LANG = "ru-RU"
-DEFAULT_CODEC = "oggopus"
+DEFAULT_CODEC = "mp3"
 DEFAULT_VOICE = "alena"
 DEFAULT_EMOTION = "neutral"
 DEFAULT_SPEED = 1
