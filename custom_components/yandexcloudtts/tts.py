@@ -1,4 +1,5 @@
 """Support for the Yandex.Cloud SpeechKit TTS service."""
+
 import asyncio
 import logging
 
@@ -20,20 +21,22 @@ SUPPORT_LANGUAGES = ["ru-RU", "en-US", "tr-TR"]
 SUPPORT_CODECS = ["lpcm", "oggopus"]
 
 SUPPORT_VOICES = [
-    "oksana",
+    "alena",
+    "ermil",
     "jane",
     "omazh",
     "zahar",
-    "ermil",
-    "silaerkan",
-    "erkanyavas",
-    "alyss",
-    "nick",
-    "alena",
-    "filipp",
+    "dasha",
+    "julia",
+    "lera",
+    "masha",
+    "marina",
+    "alexander",
+    "kirill",
+    "anton",
 ]
 
-SUPPORTED_EMOTION = ["good", "evil", "neutral"]
+SUPPORTED_EMOTION = ["good", "evil", "neutral", "friendly", "strict", "whisper"]
 
 MIN_SPEED = 0.1
 MAX_SPEED = 3
@@ -116,11 +119,11 @@ class YandexCloudSpeechKitProvider(Provider):
                     "speed": options.get(CONF_SPEED, self._speed),
                 }
 
-                headers = {
-                    'Authorization': 'Api-Key ' + self._key
-                }
+                headers = {"Authorization": "Api-Key " + self._key}
 
-                request = await websession.post(YANDEX_API_URL, headers=headers, data=url_param)
+                request = await websession.post(
+                    YANDEX_API_URL, headers=headers, data=url_param
+                )
 
                 if request.status != HTTP_OK:
                     _LOGGER.error(
